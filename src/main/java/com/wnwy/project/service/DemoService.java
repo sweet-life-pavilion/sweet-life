@@ -7,4 +7,5 @@ package com.wnwy.project.service;
  */
 public class DemoService {
     int a;
+    String b;
 }
