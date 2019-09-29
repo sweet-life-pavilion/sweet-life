@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wnwy.project.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.wang.entity.Order">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="cake_id" jdbcType="INTEGER" property="cakeId" />
+    <result column="cake_info_id" jdbcType="INTEGER" property="cakeInfoId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="state_id" jdbcType="INTEGER" property="stateId" />
+    <result column="order_time" jdbcType="DATE" property="orderTime" />
+    <result column="
+order_remark" jdbcType="VARCHAR" property="
+orderRemark" />
+    <result column="
+delivery_time" jdbcType="DATE" property="
+deliveryTime" />
+    <result column="money" jdbcType="DOUBLE" property="money" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id, cake_id, cake_info_id, user_id, c_id, address_id, state_id, order_time, 
+    
+order_remark, 
+delivery_time, money
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wang.entity.Order">
+    insert into order (order_id, cake_id, cake_info_id, 
+      user_id, c_id, address_id, 
+      state_id, order_time, 
+order_remark, 
+      
+delivery_time, money)
+    values (#{orderId,jdbcType=INTEGER}, #{cakeId,jdbcType=INTEGER}, #{cakeInfoId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{cId,jdbcType=INTEGER}, #{addressId,jdbcType=INTEGER}, 
+      #{stateId,jdbcType=INTEGER}, #{orderTime,jdbcType=DATE}, #{
+orderRemark,jdbcType=VARCHAR}, 
+      #{
+deliveryTime,jdbcType=DATE}, #{money,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wang.entity.Order">
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="cakeId != null">
+        cake_id,
+      </if>
+      <if test="cakeInfoId != null">
+        cake_info_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+      <if test="
+orderRemark != null">
+        
+order_remark,
+      </if>
+      <if test="
+deliveryTime != null">
+        
+delivery_time,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="cakeId != null">
+        #{cakeId,jdbcType=INTEGER},
+      </if>
+      <if test="cakeInfoId != null">
+        #{cakeInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=DATE},
+      </if>
+      <if test="
+orderRemark != null">
+        #{
+orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="
+deliveryTime != null">
+        #{
+deliveryTime,jdbcType=DATE},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.Order">
+    update order
+    <set>
+      <if test="cakeId != null">
+        cake_id = #{cakeId,jdbcType=INTEGER},
+      </if>
+      <if test="cakeInfoId != null">
+        cake_info_id = #{cakeInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null">
+        address_id = #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime,jdbcType=DATE},
+      </if>
+      <if test="
+orderRemark != null">
+        
+order_remark = #{
+orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="
+deliveryTime != null">
+        
+delivery_time = #{
+deliveryTime,jdbcType=DATE},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wang.entity.Order">
+    update order
+    set cake_id = #{cakeId,jdbcType=INTEGER},
+      cake_info_id = #{cakeInfoId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      c_id = #{cId,jdbcType=INTEGER},
+      address_id = #{addressId,jdbcType=INTEGER},
+      state_id = #{stateId,jdbcType=INTEGER},
+      order_time = #{orderTime,jdbcType=DATE},
+      
+order_remark = #{
+orderRemark,jdbcType=VARCHAR},
+      
+delivery_time = #{
+deliveryTime,jdbcType=DATE},
+      money = #{money,jdbcType=DOUBLE}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wnwy.project.mapper.ClassMapper">
+  <resultMap id="BaseResultMap" type="com.wang.entity.Class">
+    <id column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="all_class" jdbcType="VARCHAR" property="allClass" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    class_id, all_class
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from class
+    where class_id = #{classId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from class
+    where class_id = #{classId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wang.entity.Class">
+    insert into class (class_id, all_class)
+    values (#{classId,jdbcType=INTEGER}, #{allClass,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wang.entity.Class">
+    insert into class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="allClass != null">
+        all_class,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="allClass != null">
+        #{allClass,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.Class">
+    update class
+    <set>
+      <if test="allClass != null">
+        all_class = #{allClass,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where class_id = #{classId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wang.entity.Class">
+    update class
+    set all_class = #{allClass,jdbcType=VARCHAR}
+    where class_id = #{classId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wnwy.project.mapper.CakeMapper">
+  <resultMap id="BaseResultMap" type="com.wang.entity.Cake">
+    <id column="cake_id" jdbcType="INTEGER" property="cakeId" />
+    <result column="cake_info_id" jdbcType="INTEGER" property="cakeInfoId" />
+    <result column="cake_name" jdbcType="VARCHAR" property="cakeName" />
+    <result column="taste_id" jdbcType="INTEGER" property="tasteId" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="pay_amount" jdbcType="INTEGER" property="payAmount" />
+    <result column="is_hot" jdbcType="INTEGER" property="isHot" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cake_id, cake_info_id, cake_name, taste_id, class_id, price, image_url, description, 
+    pay_amount, is_hot, create_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cake
+    where cake_id = #{cakeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cake
+    where cake_id = #{cakeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wang.entity.Cake">
+    insert into cake (cake_id, cake_info_id, cake_name, 
+      taste_id, class_id, price, 
+      image_url, description, pay_amount, 
+      is_hot, create_date)
+    values (#{cakeId,jdbcType=INTEGER}, #{cakeInfoId,jdbcType=INTEGER}, #{cakeName,jdbcType=VARCHAR}, 
+      #{tasteId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, 
+      #{imageUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{payAmount,jdbcType=INTEGER}, 
+      #{isHot,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wang.entity.Cake">
+    insert into cake
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cakeId != null">
+        cake_id,
+      </if>
+      <if test="cakeInfoId != null">
+        cake_info_id,
+      </if>
+      <if test="cakeName != null">
+        cake_name,
+      </if>
+      <if test="tasteId != null">
+        taste_id,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="imageUrl != null">
+        image_url,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="payAmount != null">
+        pay_amount,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cakeId != null">
+        #{cakeId,jdbcType=INTEGER},
+      </if>
+      <if test="cakeInfoId != null">
+        #{cakeInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="cakeName != null">
+        #{cakeName,jdbcType=VARCHAR},
+      </if>
+      <if test="tasteId != null">
+        #{tasteId,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="imageUrl != null">
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null">
+        #{payAmount,jdbcType=INTEGER},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.Cake">
+    update cake
+    <set>
+      <if test="cakeInfoId != null">
+        cake_info_id = #{cakeInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="cakeName != null">
+        cake_name = #{cakeName,jdbcType=VARCHAR},
+      </if>
+      <if test="tasteId != null">
+        taste_id = #{tasteId,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        class_id = #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="imageUrl != null">
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null">
+        pay_amount = #{payAmount,jdbcType=INTEGER},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where cake_id = #{cakeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wang.entity.Cake">
+    update cake
+    set cake_info_id = #{cakeInfoId,jdbcType=INTEGER},
+      cake_name = #{cakeName,jdbcType=VARCHAR},
+      taste_id = #{tasteId,jdbcType=INTEGER},
+      class_id = #{classId,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      pay_amount = #{payAmount,jdbcType=INTEGER},
+      is_hot = #{isHot,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where cake_id = #{cakeId,jdbcType=INTEGER}
+  </update>
+</mapper>
