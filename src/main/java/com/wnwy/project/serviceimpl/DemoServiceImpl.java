@@ -6,4 +6,5 @@ package com.wnwy.project.serviceimpl;
  * @
  */
 public class DemoServiceImpl {
+    int a;
 }
