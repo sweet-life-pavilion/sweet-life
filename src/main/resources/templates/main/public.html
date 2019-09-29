@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>甜味生活馆_24小时蛋糕网上订购_5小时新鲜送达！</title>
-    <link rel="shortcut icon" type="image/x-icon"  th:href="@{/images/favicon.ico}" href="../images/favicon.ico">
-    <link rel="stylesheet" th:href="@{/css/home-page.css}" href="../css/home-page.css">
-    <link rel="stylesheet" th:href="@{/css/common.css}" href="../css/common.css">
-    <link rel="stylesheet" th:href="@{/css/register.css}" href="../css/register.css">
-    <link rel="stylesheet" th:href="@{/css/footer.css}" href="../css/footer.css">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head lang="en" id="public_head">
+
 </head>
 <body>
 <!--头部导航-->
@@ -16,7 +10,7 @@
         <nav class="center clearfix">
             <!--logo-->
             <a th:href="@{/view/home-page}" class="nav-logo floatL">
-                <img th:src="@{/images/logo.png}" src="../images/logo.png" alt="廿一客">
+                <img th:src="@{/images/logo.png}" alt="廿一客">
             </a>
             <!--/logo-->
 
@@ -110,24 +104,8 @@
 <!--头部导航结束-->
 
 
-<!--头部图片-->
-<form action="#">
-     <p>用户注册</p>
-    <input type="text" placeholder="电话号码" id="telphone">
-    <input type="password" placeholder="密码:请输入6~20位字符,须同时包含英文和数字" id="password">
-    <input type="password" placeholder="确认密码" id="surePassword">
-    <input type="text" placeholder="请输入图片字符">
-    <input type="text" placeholder="短信验证码" class="msg">
-    <button class="msgBtn">获取验证码</button>
-    <input type="text" placeholder="请选择生日" id="dateBirth">
-    <span class="append" id="append"></span>
-    <button class="submit" type="button">注册</button>
-</form>
-
-
-
 <!--页尾-->
-<div class="footer">
+<div class="footer" id="public_footer">
     <img class="footer-logo" src="../images/footer-logo.png" height="36" width="96" alt="">
     <div class="footer-nav">
         <a href="contact.html">联系我们</a>
@@ -174,9 +152,7 @@
         </span>
     </div>
 </div>
-<script src="../lib/jquery-1.12.4.js"></script>
-<script src="../js/register.js"></script>
-<script src="../js/home-page.js"></script>
-<script src="../js/footer.js"></script>
+
+
 </body>
 </html>
