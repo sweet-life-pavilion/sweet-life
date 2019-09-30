@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wnwy.project.mapper.ShoppingCarMapper">
-  <resultMap id="BaseResultMap" type="com.wang.entity.ShoppingCar">
+  <resultMap id="BaseResultMap" type="com.wnwy.project.entities.ShoppingCar">
     <id column="c_id" jdbcType="INTEGER" property="cId" />
     <result column="cake_id" jdbcType="INTEGER" property="cakeId" />
     <result column="cake_info_id" jdbcType="INTEGER" property="cakeInfoId" />
@@ -21,13 +21,13 @@
     delete from shoppingcar
     where c_id = #{cId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wang.entity.ShoppingCar">
+  <insert id="insert" parameterType="com.wnwy.project.entities.ShoppingCar">
     insert into shoppingcar (c_id, cake_id, cake_info_id, 
       user_id, sum)
     values (#{cId,jdbcType=INTEGER}, #{cakeId,jdbcType=INTEGER}, #{cakeInfoId,jdbcType=INTEGER}, 
       #{userId,jdbcType=INTEGER}, #{sum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.wang.entity.ShoppingCar">
+  <insert id="insertSelective" parameterType="com.wnwy.project.entities.ShoppingCar">
     insert into shoppingcar
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cId != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.ShoppingCar">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wnwy.project.entities.ShoppingCar">
     update shoppingcar
     <set>
       <if test="cakeId != null">
@@ -82,7 +82,7 @@
     </set>
     where c_id = #{cId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wang.entity.ShoppingCar">
+  <update id="updateByPrimaryKey" parameterType="com.wnwy.project.entities.ShoppingCar">
     update shoppingcar
     set cake_id = #{cakeId,jdbcType=INTEGER},
       cake_info_id = #{cakeInfoId,jdbcType=INTEGER},

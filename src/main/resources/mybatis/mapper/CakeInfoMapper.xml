@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wnwy.project.mapper.CakeInfoMapper">
-  <resultMap id="BaseResultMap" type="com.wang.entity.CakeInfo">
+  <resultMap id="BaseResultMap" type="com.wnwy.project.entities.CakeInfo">
     <id column="cake_info_id" jdbcType="INTEGER" property="cakeInfoId" />
     <result column=" pound" jdbcType="VARCHAR" property="pound" />
     <result column="size" jdbcType="VARCHAR" property="size" />
@@ -22,7 +22,7 @@
     delete from cake_info
     where cake_info_id = #{cakeInfoId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wang.entity.CakeInfo">
+  <insert id="insert" parameterType="com.wnwy.project.entities.CakeInfo">
     insert into cake_info (cake_info_id, " pound", size, 
       number, tableware, img_size
       )
@@ -30,7 +30,7 @@
       #{number,jdbcType=VARCHAR}, #{tableware,jdbcType=VARCHAR}, #{imgSize,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.wang.entity.CakeInfo">
+  <insert id="insertSelective" parameterType="com.wnwy.project.entities.CakeInfo">
     insert into cake_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cakeInfoId != null">
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.CakeInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wnwy.project.entities.CakeInfo">
     update cake_info
     <set>
       <if test="pound != null">
@@ -94,7 +94,7 @@
     </set>
     where cake_info_id = #{cakeInfoId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wang.entity.CakeInfo">
+  <update id="updateByPrimaryKey" parameterType="com.wnwy.project.entities.CakeInfo">
     update cake_info
     set " pound" = #{pound,jdbcType=VARCHAR},
       size = #{size,jdbcType=VARCHAR},

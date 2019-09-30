@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wnwy.project.mapper.CakeMapper">
-  <resultMap id="BaseResultMap" type="com.wang.entity.Cake">
+  <resultMap id="BaseResultMap" type="com.wnwy.project.entities.Cake">
     <id column="cake_id" jdbcType="INTEGER" property="cakeId" />
     <result column="cake_info_id" jdbcType="INTEGER" property="cakeInfoId" />
     <result column="cake_name" jdbcType="VARCHAR" property="cakeName" />
@@ -28,7 +28,7 @@
     delete from cake
     where cake_id = #{cakeId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wang.entity.Cake">
+  <insert id="insert" parameterType="com.wnwy.project.entities.Cake">
     insert into cake (cake_id, cake_info_id, cake_name, 
       taste_id, class_id, price, 
       image_url, description, pay_amount, 
@@ -38,7 +38,7 @@
       #{imageUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{payAmount,jdbcType=INTEGER}, 
       #{isHot,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.wang.entity.Cake">
+  <insert id="insertSelective" parameterType="com.wnwy.project.entities.Cake">
     insert into cake
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cakeId != null">
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.Cake">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wnwy.project.entities.Cake">
     update cake
     <set>
       <if test="cakeInfoId != null">
@@ -147,7 +147,7 @@
     </set>
     where cake_id = #{cakeId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wang.entity.Cake">
+  <update id="updateByPrimaryKey" parameterType="com.wnwy.project.entities.Cake">
     update cake
     set cake_info_id = #{cakeInfoId,jdbcType=INTEGER},
       cake_name = #{cakeName,jdbcType=VARCHAR},

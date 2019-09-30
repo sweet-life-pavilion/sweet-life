@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wnwy.project.mapper.TasteMapper">
-  <resultMap id="BaseResultMap" type="com.wang.entity.Taste">
+  <resultMap id="BaseResultMap" type="com.wnwy.project.entities.Taste">
     <id column="taste_id" jdbcType="INTEGER" property="tasteId" />
     <result column="taste_name" jdbcType="VARCHAR" property="tasteName" />
   </resultMap>
@@ -18,11 +18,11 @@
     delete from taste
     where taste_id = #{tasteId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wang.entity.Taste">
+  <insert id="insert" parameterType="com.wnwy.project.entities.Taste">
     insert into taste (taste_id, taste_name)
     values (#{tasteId,jdbcType=INTEGER}, #{tasteName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.wang.entity.Taste">
+  <insert id="insertSelective" parameterType="com.wnwy.project.entities.Taste">
     insert into taste
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="tasteId != null">
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.Taste">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wnwy.project.entities.Taste">
     update taste
     <set>
       <if test="tasteName != null">
@@ -50,7 +50,7 @@
     </set>
     where taste_id = #{tasteId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wang.entity.Taste">
+  <update id="updateByPrimaryKey" parameterType="com.wnwy.project.entities.Taste">
     update taste
     set taste_name = #{tasteName,jdbcType=VARCHAR}
     where taste_id = #{tasteId,jdbcType=INTEGER}

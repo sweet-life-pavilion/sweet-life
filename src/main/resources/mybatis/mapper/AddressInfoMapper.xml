@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wnwy.project.mapper.AddressInfoMapper">
-  <resultMap id="BaseResultMap" type="com.wang.entity.AddressInfo">
+  <resultMap id="BaseResultMap" type="com.wnwy.project.entities.AddressInfo">
     <id column="address_id" jdbcType="INTEGER" property="addressId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="address" jdbcType="VARCHAR" property="address" />
@@ -23,7 +23,7 @@
     delete from address_info
     where address_id = #{addressId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wang.entity.AddressInfo">
+  <insert id="insert" parameterType="com.wnwy.project.entities.AddressInfo">
     insert into address_info (address_id, user_id, address, 
       status, tel_phone, city, 
       receiver_name)
@@ -31,7 +31,7 @@
       #{status,jdbcType=INTEGER}, #{telPhone,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
       #{receiverName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.wang.entity.AddressInfo">
+  <insert id="insertSelective" parameterType="com.wnwy.project.entities.AddressInfo">
     insert into address_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="addressId != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.AddressInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wnwy.project.entities.AddressInfo">
     update address_info
     <set>
       <if test="userId != null">
@@ -104,7 +104,7 @@
     </set>
     where address_id = #{addressId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wang.entity.AddressInfo">
+  <update id="updateByPrimaryKey" parameterType="com.wnwy.project.entities.AddressInfo">
     update address_info
     set user_id = #{userId,jdbcType=INTEGER},
       address = #{address,jdbcType=VARCHAR},

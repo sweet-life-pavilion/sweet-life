@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wnwy.project.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.wang.entity.Order">
+  <resultMap id="BaseResultMap" type="com.wnwy.project.entities.Order">
     <id column="order_id" jdbcType="INTEGER" property="orderId" />
     <result column="cake_id" jdbcType="INTEGER" property="cakeId" />
     <result column="cake_info_id" jdbcType="INTEGER" property="cakeInfoId" />
@@ -34,7 +34,7 @@ delivery_time, money
     delete from order
     where order_id = #{orderId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wang.entity.Order">
+  <insert id="insert" parameterType="com.wnwy.project.entities.Order">
     insert into order (order_id, cake_id, cake_info_id, 
       user_id, c_id, address_id, 
       state_id, order_time, 
@@ -48,7 +48,7 @@ orderRemark,jdbcType=VARCHAR},
       #{
 deliveryTime,jdbcType=DATE}, #{money,jdbcType=DOUBLE})
   </insert>
-  <insert id="insertSelective" parameterType="com.wang.entity.Order">
+  <insert id="insertSelective" parameterType="com.wnwy.project.entities.Order">
     insert into order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">
@@ -129,7 +129,7 @@ deliveryTime,jdbcType=DATE},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wnwy.project.entities.Order">
     update order
     <set>
       <if test="cakeId != null">
@@ -171,7 +171,7 @@ deliveryTime,jdbcType=DATE},
     </set>
     where order_id = #{orderId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wang.entity.Order">
+  <update id="updateByPrimaryKey" parameterType="com.wnwy.project.entities.Order">
     update order
     set cake_id = #{cakeId,jdbcType=INTEGER},
       cake_info_id = #{cakeInfoId,jdbcType=INTEGER},

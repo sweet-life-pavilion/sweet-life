@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wnwy.project.mapper.StateMapper">
-  <resultMap id="BaseResultMap" type="com.wang.entity.State">
+  <resultMap id="BaseResultMap" type="com.wnwy.project.entities.State">
     <id column="
 state_id" jdbcType="INTEGER" property="
 stateId" />
@@ -25,13 +25,13 @@ stateId,jdbcType=INTEGER}
 state_id = #{
 stateId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wang.entity.State">
+  <insert id="insert" parameterType="com.wnwy.project.entities.State">
     insert into state (
 state_id, state_name)
     values (#{
 stateId,jdbcType=INTEGER}, #{stateName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.wang.entity.State">
+  <insert id="insertSelective" parameterType="com.wnwy.project.entities.State">
     insert into state
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="
@@ -54,7 +54,7 @@ stateId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wang.entity.State">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wnwy.project.entities.State">
     update state
     <set>
       <if test="stateName != null">
@@ -65,7 +65,7 @@ stateId,jdbcType=INTEGER},
 state_id = #{
 stateId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wang.entity.State">
+  <update id="updateByPrimaryKey" parameterType="com.wnwy.project.entities.State">
     update state
     set state_name = #{stateName,jdbcType=VARCHAR}
     where 
